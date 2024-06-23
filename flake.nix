@@ -31,6 +31,7 @@
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-new-kernel-no-zfs-installer.nix" # Base system - various utilities.
         ];
       };
+      nixosModules.default = { config }: { imports = [ "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-new-kernel-no-zfs-installer.nix" ./genTFTP.nix ]; };
       TFTPFolder = nixosConfigurations.client.config.system.build.rpiTFTP;
       NFSFolder = nixosConfigurations.client.config.system.build.sdImage;
     };
